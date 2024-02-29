@@ -1,0 +1,741 @@
+<html>
+	<head> 
+        <link rel="stylesheet" type="text/css" href="./index.css" /> 
+		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+		<style>
+
+@font-face{
+ src: url("HelveticaBold.ttf");   
+ font-family: HB;
+}
+
+@font-face{
+ src: url("Uni Sans Heavy.otf");   
+ font-family: USH;
+}
+
+
+html {
+  width: auto; 
+}
+body {
+    width: 100%; height:  100%; 
+    margin: 0; padding: 0;
+	background-color: var(--col-primary);
+	font-family: 'Raleway', sans-serif;
+}
+body { 
+	--col-primary: #eeeeee;
+	--col-primary-plus: #ffffff;
+	--col-primary-plus-blue: #eeeeff;
+	--col-secondary: #000000;
+	--col-accent: rgb(100, 50, 150);
+	--col-accent-2: rgb(200, 250, 250);
+}
+body * {
+	color: var(--col-secondary);
+}
+
+
+
+
+
+
+
+
+
+
+
+section[pg-cover] {
+	display: none;
+	background-color: #222222;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0; left: 0;
+	animation: remove-cover 2s ease;
+}
+
+@keyframes remove-cover {
+	from {
+		left: 100%;
+	}
+	to {
+		left: 100%;
+	}
+}
+
+
+
+
+
+header {
+
+}
+header nav {
+	width: 100%;
+	height: 40px;
+	display: flex;
+	box-sizing: border-box;  
+
+	flex-flow: row wrap;
+	justify-content: space-between; 
+	position: fixed; top: 0px; 
+	background-color: var(--col-primary);
+} 
+
+header nav .nav-left {
+  margin-left: 20px;
+}
+
+header nav .nav-center {  
+
+}
+
+header nav .nav-right { 
+  margin-right: 20px; 
+}
+
+
+
+
+
+section[pg-1] {
+	width: 100%;
+	height: 80%;
+	padding-top: 40px;
+	background-color: var(--col-primary);
+}
+
+section[pg-1] .section-header-1 {
+	font-size: 4rem;
+	font-weight: bold;
+	text-align: center;
+	margin: 0; padding: 0;
+	padding-left: 50px; padding-right: 50px;
+	margin-top: 12.5%;
+}
+
+section[pg-1] .section-header-2 {
+	font-size: 4.85rem;
+	font-weight: bold;
+	font-family: "USH";
+	text-align: center;
+	margin: 0; padding: 0;
+	padding-left: 50px; padding-right: 50px;
+	margin-left: 100px; margin-right: 100px;
+}
+
+section[pg-1] .section-label {
+	text-align: center;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+
+
+
+
+
+
+
+section[pg-1] .section-header {
+  --rise-size: 5.0rem;
+  --ht-done-time: 3s;
+  
+  font-size: var(--rise-size); 
+  height: var(--rise-size); 
+  line-height: var(--rise-size); 
+  color: var(--col-secondary);
+  overflow: hidden;
+  background-color: transparent; 
+  text-align: center;
+  box-sizing: border-box;
+  position: relative; 
+
+  z-index: 1;  
+} 
+
+section[pg-1] .section-header { 
+  animation: 1s text-rise ease forwards;  
+  animation-duration: calc(var(--ht-done-time) - .7 * var(--ht-done-time)); 
+  animation-delay: calc(.7 * var(--ht-done-time)); 
+  transform: rotate(-.2deg);
+  padding-top: var(--rise-size);
+}
+
+section[pg-1] .section-header { 
+} 
+
+
+
+@keyframes text-rise {
+  from { padding-top: var(--rise-size); }
+  to { padding-top: 0px; }
+}
+
+
+
+
+
+
+section[pg-1] .section-label {
+	opacity: 0;
+	animation: text-opaque 2s ease forwards;
+	animation-delay: var(--ht-done-time);
+}
+
+section[pg-2] {
+	opacity: 0;
+	animation: text-opaque 2s ease forwards;
+	animation-delay: var(--ht-done-time);
+}
+
+
+@keyframes text-opaque {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+section[pg-2] {
+	width: calc(100% - 50px);
+	height: 100vh;
+	margin: 30px auto; 
+	position: relative; 
+	overflow-x: hidden;
+}
+
+section[pg-2] .stack {
+	width: calc(100% - 160px);
+	height: calc(100vh - 100px);
+	box-sizing: border-box;
+	padding-top: 10%;
+	margin-bottom: 100px;
+	background-color: #dd6d6d;
+	position: absolute;
+	top: 0%;
+	left: 0%; 
+	border-left: 3px solid var(--col-primary);
+	border-right: 3px solid var(--col-primary); 
+	z-index: 1;
+	transition: transform 1s ease;
+}
+section[pg-2] .stack:before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: 0; left: 0px; transform: translateX(-100%);
+	width: 100%; height: 100%;
+	background-color: rgba(2, 2, 2, .3);
+	pointer-events: none;
+}
+
+section[pg-2] .stack:nth-child(1) {
+	left: 0px;
+}
+
+section[pg-2] .stack:nth-child(2) {
+	left: 40px;
+}
+
+section[pg-2] .stack:nth-child(3) {
+	left: 80px;
+}
+
+section[pg-2] .stack:nth-child(4) {
+	left: 120px;
+}
+
+section[pg-2] .stack:nth-child(5) {
+	left: 160px;
+}
+
+section[pg-2] .stack[direction="right"] {
+	transform: translateX(calc(100% - 40px));
+}
+section[pg-2] .stack[direction="right"]:before {
+	transform: translateX(calc(0% - 0px));
+	z-index: -1;
+}
+
+
+
+
+section[pg-2] .stack .stack-header {
+	font-family: "Anton";
+	font-size: 2.3rem;
+	color: peachpuff;
+	text-align: center;
+	margin-left: 25%; margin-right: 25%;
+}
+
+section[pg-2] .stack .stack-label {
+	font-size: 1rem; 
+	color: var(--col-primary);
+	text-align: center;
+	margin-left: 25%; margin-right: 25%;
+}
+
+section[pg-2] .stack .stack-drawer {
+	position: absolute;
+	top: 50%; left: 0%;
+	transform: translateY(-50%);
+	color: var(--col-primary);
+	padding: 10px;
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+section[pg-3] {
+	margin: 30px auto;
+}
+
+section[pg-3] .line {
+	width: 100%;
+	height: 70px;
+	display: block;
+	text-align: center;
+	margin: 0;
+	white-space: nowrap;
+	overflow-x: hidden;
+}
+
+section[pg-3] .line span {
+	font-size: 3rem;
+	font-weight: bold;
+	font-family: "Oswald";
+	line-height: 70px; box-sizing: border-box;
+	padding-left: 20px; padding-right: 20px;
+	display: none;
+}
+
+section[pg-3] .line:hover {
+	background-color: #dd6d6d;
+}
+
+section[pg-3] .line:hover span {
+	font-size: 3.4rem;
+	font-family: "USH";
+	display: inline;
+
+	animation: marquee 5s linear infinite;
+	position: relative;
+	left: 0%; 
+}
+
+section[pg-3] .line span[prime-text] {
+	display: inline;
+}
+
+
+@keyframes marquee {
+	0% {
+		left: 0%;
+	}
+	49.990% {
+		left: -100%;
+	}
+	50% {
+		left: 100%;
+	}
+	100% {
+		left: 0%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+	margin: 30px auto;
+	background-color: #dd4d4d;
+	padding-top: 8rem;
+}
+
+footer nav {
+	width: 100%;
+	height: 40px;
+	display: flex;
+	box-sizing: border-box;  
+
+	flex-flow: row wrap;
+	justify-content: space-between;   
+} 
+
+footer nav .nav-left {
+  margin-left: 20px;
+}
+
+footer nav .nav-center {  
+
+}
+
+footer nav .nav-right { 
+  margin-right: 20px; 
+}
+
+
+footer .section-header {
+  --rise-size: 4.0rem;
+  --ht-done-time: 2s;
+}
+
+footer .section-header-1 {
+  --rise-size: 4.0rem;
+	font-weight: bold;
+	text-align: center;
+	margin: 0; padding: 0;
+	padding-left: 50px; padding-right: 50px; 
+}
+
+footer .section-header-2 {
+  --rise-size: 4.850rem;
+	font-weight: bold;
+	font-family: "USH";
+	text-align: center;
+	margin: 0; padding: 0;
+	padding-left: 50px; padding-right: 50px;
+	margin-left: 100px; margin-right: 100px;
+}
+
+footer .section-label {
+	text-align: center;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+footer .section-input {
+	background-color: rgba(20, 20, 20, .1);
+	border-radius: 5px;
+	display: block; box-sizing: border-box;
+	margin: 30px auto;
+	width: 25.0%; height: 30px;
+	line-height: 30px;
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row wrap;padding: 7px;
+}
+
+footer .section-input input {
+
+	background-color: transparent;
+	border: none; outline: none;
+	width: calc(100% - 20px); height: 100%;
+	color: var(--col-secondary);
+}
+
+footer .section-input input::placeholder {
+	color: var(--col-secondary);
+}
+
+footer .section-input .send-btn {
+	width: 20px; display: block;
+	font-size: 20px;
+	line-height: 20px; text-align: center;
+}
+
+
+
+
+
+footer .section-header { 
+  
+  font-size: var(--rise-size); 
+  height: var(--rise-size); 
+  line-height: var(--rise-size); 
+  color: var(--col-secondary);
+  overflow: hidden;
+  background-color: transparent; 
+  text-align: center;
+  box-sizing: border-box;
+  position: relative; 
+
+  z-index: 1;  
+
+
+  transition: 1s padding-top ease forwards;  
+  transition-duration: calc(var(--ht-done-time) - .7 * var(--ht-done-time)); 
+  transition-delay: calc(.7 * var(--ht-done-time)); 
+  transform: rotate(-.2deg);
+} 
+
+footer .section-header { 
+  padding-top: var(--rise-size);
+} 
+
+footer[in-view] .section-header { 
+  padding-top: 0;
+}
+
+
+
+
+
+
+		</style>
+	</head>
+	<body>
+		<section pg-cover></section>
+		<header>
+			<nav> 
+ 				<p class="nav-left">Menu</p> 
+ 				<p class="nav-center">BranLogix</p> 
+ 				<p class="nav-right">Contact</p> 
+			</nav> 
+		</header>
+		<section pg-1>
+		    <p class="section-header section-header-1">BranLogix</p>
+		    <p class="section-header section-header-2">TRANSP & MORE</p>
+		    <p class="section-label">Our transportation and logistics services ensure seamless operations, timely deliveries, and efficient supply chain management.</p>
+		</section>
+		<section pg-2>
+		    <div class="stack">
+		        <div class="stack-drawer">1</div>
+		        <div class="text-block">
+		            <p class="stack-header">1) EFFICIENT TRANSPORTATION SOLUTIONS</p>
+		            <p class="stack-label">Streamline your supply chain with our innovative transportation solutions.</p>
+		        </div>
+		        <div class="stack-graphic">
+		            
+		        </div>
+		    </div>
+		    <div class="stack">
+		        <div class="stack-drawer">2</div>
+		        <div class="text-block">
+		            <p class="stack-header">2) CUSTOMIZED LOGISTICS STRATEGIES</p>
+		            <p class="stack-label">Tailored logistics strategies to meet your unique shipping and distribution needs.</p>
+		        </div>
+		        <div class="stack-graphic">
+		            
+		        </div>
+		    </div>
+		    <div class="stack">
+		        <div class="stack-drawer">3</div>
+		        <div class="text-block">
+		            <p class="stack-header">3) RELIABLE FREIGHT MANAGEMENT</p>
+		            <p class="stack-label">Trust our expertise for efficient freight management and timely deliveries.</p>
+		        </div>
+		        <div class="stack-graphic">
+		            
+		        </div>
+		    </div>
+		    <div class="stack">
+		        <div class="stack-drawer">4</div>
+		        <div class="text-block">
+		            <p class="stack-header">4) SCALABLE LOGISTICS SOLUTIONS</p>
+		            <p class="stack-label">Grow your business with scalable logistics solutions designed for success.</p>
+		        </div>
+		        <div class="stack-graphic">
+		            
+		        </div>
+		    </div>
+		    <div class="stack"> 
+		        <div class="stack-drawer">5</div>
+		        <div class="text-block">
+		            <p class="stack-header">5) COLLABORATIVE SUPPLY CHAIN MANAGEMENT</p>
+		            <p class="stack-label">Partner with us to optimize your supply chain and achieve greater efficiency together.</p>
+		        </div>
+		        <div class="stack-graphic">
+		            
+		        </div>
+		    </div>
+		</section>
+
+		<section pg-3>
+		    <p class="line line1"> 
+		        <span>Shipments</span> 
+		        <span class="seperator">*</span>
+		        <span>Quotes</span>
+		        <span class="seperator">*</span>
+		        <span prime-text>Deliveries</span>
+		        <span class="seperator">*</span>
+		        <span>Support</span>
+		    </p>
+		    <p class="line line2">
+		        <span class="seperator">*</span>
+		        <span>Routes</span>
+		        <span class="seperator">*</span>
+		        <span prime-text>Logistics</span>
+		        <span class="seperator">*</span>
+		        <span>Schedules</span>
+		    </p> 
+		    <p class="line line3"> 
+		        <span>Inventory</span>
+		        <span class="seperator">*</span>
+		        <span>Warehouses</span>
+		        <span class="seperator">*</span>
+		        <span prime-text>Streamline</span>
+		        <span class="seperator">*</span>
+		        <span>Services</span>
+		    </p>
+		    <p class="line line4"> 
+		        <span prime-text>Customize</span>
+		        <span class="seperator">*</span>
+		        <span>Safety</span>
+		        <span class="seperator">*</span>
+		        <span>Deadlines</span>
+		        <span class="seperator">*</span>
+		        <span>Efficiency</span>
+		    </p>
+		    <p class="line line5" prime-line> 
+		        <span>Track</span>
+		        <span class="seperator">*</span>
+		        <span prime-text>Fuel</span>
+		        <span class="seperator">*</span>
+		        <span>Emissions</span>
+		        <span class="seperator">*</span>
+		        <span>Security</span>
+		    </p>
+		    <p class="line line6"> 
+		        <span>Fleets</span>
+		        <span class="seperator">*</span>
+		        <span>Coordinate</span>
+		        <span class="seperator">*</span>
+		        <span prime-text>Optimize</span>
+		        <span class="seperator">*</span>
+		        <span>Compliance</span>
+		    </p>
+		    <p class="line line7"> 
+		        <span>Deliveries</span>
+		        <span class="seperator">*</span>
+		        <span>Updates</span>
+		        <span class="seperator">*</span>
+		        <span prime-text>Support</span>
+		        <span class="seperator">*</span>
+		        <span>Satisfaction</span>
+		    </p>
+		</section>
+
+		<footer>
+		    <p class="section-header section-header-1">SHIPPING AND</p>
+		    <p class="section-header section-header-2">LOGISTICS</p>
+		    <p class="section-label">Get updates on our services</p>
+		    <div class="section-input">
+		        <input placeholder="Email"/>
+		        <span class="send-btn fas fa-arrow-right"></span>
+		    </div>
+		    <nav> 
+		        <p class="nav-left">Menu</p> 
+		        <p class="nav-center">About</p> 
+		        <p class="nav-right">Contact</p> 
+		    </nav> 
+		</footer>
+
+	</body>
+	<script>
+
+
+//stack control
+let stacks = [...document.querySelectorAll(".stack")];
+
+
+function moveStackAtIndex(stackIndex){
+	let stackAtIndex =  stacks[stackIndex-1];
+	let stackDirection = stackAtIndex.getAttribute("direction") ?? "left";
+	if(stackDirection=="left") {
+		stacks.map((afterstack, afterstackIndex)=>{
+			if(stackIndex > 1 
+			&& afterstackIndex+1 >= stackIndex) {
+				moveStackRight(afterstack);
+			}
+		});
+	}
+	if(stackDirection=="right") {
+		stacks.map((afterstack, afterstackIndex)=>{
+			if(stackIndex >= afterstackIndex+1) {
+				moveStackLeft(afterstack)
+			}
+		});
+	}
+}
+function moveStackLeft(stack) {
+	stack.setAttribute("direction", "left");
+}
+function moveStackRight(stack) {  
+	stack.setAttribute("direction", "right");
+}
+
+stacks.map((stack, stackIndex) => {
+	stackIndex += 1;
+	stack.onclick = () => {
+		moveStackAtIndex(stackIndex);
+	}
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+const footer = document.querySelector('footer');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      footer.setAttribute('in-view', '');
+    } else {
+      footer.removeAttribute('in-view');
+    }
+  });
+}, { threshold: 0.1 }); 
+// Trigger when at least 50% of the footer is in view
+
+observer.observe(footer);
+
+	</script>
+</html>
