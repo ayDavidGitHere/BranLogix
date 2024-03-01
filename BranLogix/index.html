@@ -1,6 +1,9 @@
 <html>
 	<head> 
-        <link rel="stylesheet" type="text/css" href="./index.css" /> 
+		<link rel="icon" type="image/png" sizes="16x16" href="https://avatars.githubusercontent.com/u/71327146?v=4">
+    <link rel="stylesheet" type="text/css" href="./index.css" />
+
+
 		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
@@ -38,6 +41,14 @@ body {
 	--col-secondary: #000000;
 	--col-accent: rgb(100, 50, 150);
 	--col-accent-2: rgb(200, 250, 250);
+}
+body[dark] {
+	--col-primary: #111111;
+	--col-primary-plus: #222222;
+	--col-primary-plus-blue: #111122;
+	--col-secondary: #ffffff;
+	--col-accent: rgb(100, 50, 150);
+	--col-accent-2: rgb(200, 250, 250); 
 }
 body * {
 	color: var(--col-secondary);
@@ -89,6 +100,7 @@ header nav {
 	justify-content: space-between; 
 	position: fixed; top: 0px; 
 	background-color: var(--col-primary);
+	z-index: 5;
 } 
 
 header nav .nav-left {
@@ -108,10 +120,10 @@ header nav .nav-right {
 
 
 section[pg-1] {
-	width: 100%;
-	height: 80%;
-	padding-top: 40px;
-	background-color: var(--col-primary);
+	width: 100%; 
+	padding-top: 100px;
+	padding-bottom: 100px;
+	background-color: var(--col-primary); 
 }
 
 section[pg-1] .section-header-1 {
@@ -119,8 +131,7 @@ section[pg-1] .section-header-1 {
 	font-weight: bold;
 	text-align: center;
 	margin: 0; padding: 0;
-	padding-left: 50px; padding-right: 50px;
-	margin-top: 12.5%;
+	padding-left: 50px; padding-right: 50px; 
 }
 
 section[pg-1] .section-header-2 {
@@ -220,18 +231,18 @@ section[pg-2] {
 
 section[pg-2] {
 	width: calc(100% - 50px);
-	height: 100vh;
+	height: calc(100vh - 100px); max-height: 500px;
 	margin: 30px auto; 
 	position: relative; 
+	padding: 0px; box-sizing: none;
 	overflow-x: hidden;
 }
 
 section[pg-2] .stack {
 	width: calc(100% - 160px);
-	height: calc(100vh - 100px);
+	height: calc(100%); 
 	box-sizing: border-box;
-	padding-top: 10%;
-	margin-bottom: 100px;
+	padding-top: 10%; 
 	background-color: #dd6d6d;
 	position: absolute;
 	top: 0%;
@@ -287,6 +298,7 @@ section[pg-2] .stack .stack-header {
 	font-size: 2.3rem;
 	color: peachpuff;
 	text-align: center;
+	margin-top: 0%;
 	margin-left: 25%; margin-right: 25%;
 }
 
@@ -305,7 +317,12 @@ section[pg-2] .stack .stack-drawer {
 	padding: 10px;
 }
 
- 
+
+@media only screen and (max-width: 767px) {
+	section[pg-2] .stack .stack-header {
+		font-size: 1.8rem;
+	}
+}
 
 
 
@@ -520,7 +537,7 @@ footer[in-view] .section-header {
 
 		</style>
 	</head>
-	<body>
+	<body dark>
 		<section pg-cover></section>
 		<header>
 			<nav> 
@@ -733,7 +750,7 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 }, { threshold: 0.1 }); 
-// Trigger when at least 50% of the footer is in view
+// Trigger when at least 10% of the footer is in view
 
 observer.observe(footer);
 
