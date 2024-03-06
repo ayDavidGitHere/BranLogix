@@ -39,7 +39,7 @@ body {
 	--col-primary-plus: #ffffff;
 	--col-primary-plus-blue: #eeeeff;
 	--col-secondary: #000000;
-	--col-accent: rgb(100, 50, 150);
+	--col-accent: #dd4d4d;
 	--col-accent-2: rgb(200, 250, 250);
 }
 body[dark] {
@@ -256,8 +256,9 @@ section[pg-2] .stack:before {
 	content: "";
 	position: absolute;
 	z-index: -1;
-	top: 0; left: 0px; transform: translateX(-100%);
-	width: 100%; height: 100%;
+	top: 0; left: 0px; 
+	transform: translateX(calc(-100% + 0px));
+	width: calc(200% + 0px); height: 100%;
 	background-color: rgba(2, 2, 2, .3);
 	pointer-events: none;
 }
@@ -286,7 +287,7 @@ section[pg-2] .stack[direction="right"] {
 	transform: translateX(calc(100% - 40px));
 }
 section[pg-2] .stack[direction="right"]:before {
-	transform: translateX(calc(0% - 0px));
+	transform: translateX(calc(0%));
 	z-index: -1;
 }
 
@@ -310,12 +311,87 @@ section[pg-2] .stack .stack-label {
 }
 
 section[pg-2] .stack .stack-drawer {
+	--drawer-color: transparent;
+	--drawer-border-color: peachpuff;
+	--drawer-width: 20px;
+	--drawer-thickness: 3px;
 	position: absolute;
 	top: 50%; left: 0%;
-	transform: translateY(-50%);
-	color: var(--col-primary);
-	padding: 10px;
+	transform: translate(calc(50%), -50%);
+	background-color: transparent;
+	color: var(--col-secondary);
+	border-radius: 4px; 
+  width: 40px;
+  height: 40px; 
+  overflow: hidden;
+  z-index: 1; 
+  transition: transform 2s ease; 
+	color: green;
+  padding: 0; box-sizing: border-box;
+
+
+  /*border: 1px solid blue; 
+  overflow: visible;*/
 }
+
+section[pg-2] .stack .stack-drawer:before {
+	content: "";
+	position: absolute;
+	top: 0%; left: 0%; 
+	transform: translate(-50%, 0%) rotate(45deg) scale(.5);
+	background-color: transparent;
+	color: var(--col-secondary);
+	border: 3px solid var(--drawer-border-color);
+	border-width: var(--drawer-thickness); 
+	border-radius: 4px; 
+  width: 100%;
+  height: 100%;
+  background-color: var(--drawer-color);
+  z-index: 2;
+  transition: transform 2s ease, --drawer-thickness 2s ease;
+  padding: 0; box-sizing: border-box;
+}
+
+
+section[pg-2] .stack .stack-drawer {
+	transform: translate(calc(50%), -50%);
+}
+section[pg-2] .stack .stack-drawer:before {
+	transform: translate(-50%, 0%) rotate(45deg) scale(.5);
+}
+
+section[pg-2] .stack[direction="right"] .stack-drawer {
+	transform: translate(-50%, -50%);
+}
+section[pg-2] .stack[direction="right"] .stack-drawer:before {
+	transform: translate(50%, 0%) rotate(45deg) scale(.5);
+}
+
+section[pg-2] .stack:hover .stack-drawer {
+		--drawer-thickness: 8px; 
+}
+
+
+section[pg-2] .stack .stack-graphic {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translate(-50%, -150%);
+	width: 100px;
+}
+
+section[pg-2] .stack .stack-graphic img {
+	width: 100%; 
+	transform: scale(0.1);
+	transition: transform 2s ease; 
+}
+
+
+section[pg-2] .stack[is_prime] .stack-graphic img {
+	transform: scale(1);
+}
+
+
 
 
 @media only screen and (max-width: 767px) {
@@ -343,6 +419,8 @@ section[pg-2] .stack .stack-drawer {
 
 section[pg-3] {
 	margin: 30px auto;
+	padding-top: 30px;
+	border-top: 1px solid rgba(122, 122, 122, .5);
 }
 
 section[pg-3] .line {
@@ -373,7 +451,7 @@ section[pg-3] .line:hover span {
 	font-family: "USH";
 	display: inline;
 
-	animation: marquee 5s linear infinite;
+	animation: marquee 10s linear infinite;
 	position: relative;
 	left: 0%; 
 }
@@ -408,10 +486,249 @@ section[pg-3] .line span[prime-text] {
 
 
 
+section[pg-4] {
+	display: flex;
+	justify-content: center; 
+	flex-flow: row wrap;
+	box-sizing: border-box;
+
+  border-top: 1px solid rgba(122.5, 122.5, 122.5, .5);
+
+  padding-bottom: 100px;
+
+}
+
+section[pg-4] * { 
+	text-align: left;
+}
+
+section[pg-4] .side1 {
+	width: 50%;
+	min-width: 300px;
+	box-sizing: border-box;
+	padding: 20px;
+	padding-left: 12.5%;
+	padding-top: 2.5%; 
+	display: block; 
+}
+
+section[pg-4] .side2 {
+	width: 50%;
+	min-width: 300px;
+	box-sizing: border-box;
+	padding: 20px; 
+}
+
+section[pg-4] .side1 .side-1-label {
+	font-size: 1rem;
+	text-transform: uppercase;
+	font-weight: bold; 
+	margin: 0; padding: 0;
+}
+
+section[pg-4] .side1 .side-1-header {
+	font-size: 3rem;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: "USH"; 
+	margin: 0; padding: 0;
+}
+
+section[pg-4] .side1 .side-1-text {
+	font-size: 1rem;  
+	margin: 0; padding: 0;
+	margin-top: 40px;
+}
+
+section[pg-4] .side1 .side-1-btn {
+	font-size: 1rem; 
+	display: inline-block; margin-top: 20px;
+	background-color: var(--col-accent);
+	color: var(--col-primary);;
+	border-radius: 30px;
+	padding: 20px 40px;
+	text-align: center; 
+	text-decoration: none;
+	transition: transform 1s ease;
+	transform: scale(1.0);
+}
+
+section[pg-4] .side1 .side-1-btn:hover {
+	transform: scale(1.06);
+}
+
+
+
+section[pg-4] .side2 {
+	display: flex;
+	justify-content: space-around;
+	flex-flow: row wrap;
+}
+section[pg-4] .side2>img {
+	width: calc(50% - 30px);
+	min-width: 300px;
+	height: 60vh;
+	max-height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: rgba(122.5, 122.5, 122.5, .5);;
+  background-image: url("https://source.unsplash.com/random/?trucks");
+  background-size: 100% 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+section[pg-5] {
+	display: flex;
+	justify-content: center; 
+	flex-flow: row wrap;
+	box-sizing: border-box;
+
+  border-top: 1px solid rgba(122.5, 122.5, 122.5, .5);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+section[pg-6] {
+	margin: 30px auto;
+	padding-top: 30px;
+	width: 100%;
+	padding-top: 50px;
+	border-top: 1px solid rgba(122, 122, 122, .5);
+}
+
+section[pg-6] .top-section {
+	display: flex; 
+	width: 100%; 
+	box-sizing: border-box;
+	flex-flow: row wrap;
+	justify-content: center;
+	height: 100px;
+}
+
+section[pg-6] .top-section .section-header {
+	display: block;
+	width: 30%;
+	box-sizing: border-box;
+	font-size: 2rem;
+	font-weight: bold;
+	text-align: right;  
+	height: 100%;
+	margin: 0; padding: 0;
+	padding-right: 20px;
+}
+
+section[pg-6] .top-section .section-text {
+	display: block;
+	width: 50%;
+	font-size: 1rem;
+	border-left: 1px solid rgba(122, 122, 122, 1);
+	text-align: center;
+	box-sizing: border-box;
+	margin: 0; padding: 0;
+	padding-left: 30px;
+	padding-right: 30px;
+	text-align: left; 
+	height: 100%;
+}
+
+section[pg-6] .top-section .section-button-container {
+	display: block;
+	width: 20%;
+	text-align: center; 
+	box-sizing: border-box;
+	margin: 0; padding: 0;
+	height: 100%;
+}
+
+section[pg-6] .top-section .section-button-container a {
+	background-color: var(--col-secondary);
+	color: var(--col-primary);
+	padding: 10px 20px;
+	border-radius: 5px;
+}
+section[pg-6] .top-section:hover .section-button-container a {
+	background-color: var(--col-accent);
+	color: var(--col-secondary);
+}
+
+section[pg-6] .bottom-section {
+	display: flex; margin: 30px auto;
+	box-sizing: border-box;
+	justify-content: center;
+	flex-flow: row wrap;
+	padding-left: 30%; 
+}
+
+section[pg-6] .bottom-section .number-container {
+	width: 50%; margin-top: 40px;
+	border-left: 1px solid rgba(222, 222, 222, 1);
+	box-sizing: border-box;
+	padding: 5px;
+	padding-left: 20px;
+}
+
+section[pg-6] .bottom-section .number-container .number-value {
+	font-size: 4rem;
+	font-weight: bold;
+	font-family: 'Anton';
+}
+section[pg-6] .bottom-section .number-container .number-symbol {
+	font-size: 1.5rem;
+}
+section[pg-6] .bottom-section .number-container .number-label {
+	font-size: 1.5rem;
+	display: block;
+	margin-top: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 footer {
 	margin: 30px auto;
-	background-color: #dd4d4d;
+	background-color: var(--col-accent);
 	padding-top: 8rem;
 }
 
@@ -537,7 +854,7 @@ footer[in-view] .section-header {
 
 		</style>
 	</head>
-	<body dark>
+	<body >
 		<section pg-cover></section>
 		<header>
 			<nav> 
@@ -546,63 +863,77 @@ footer[in-view] .section-header {
  				<p class="nav-right">Contact</p> 
 			</nav> 
 		</header>
+
 		<section pg-1>
 		    <p class="section-header section-header-1">BranLogix</p>
 		    <p class="section-header section-header-2">TRANSP & MORE</p>
 		    <p class="section-label">Our transportation and logistics services ensure seamless operations, timely deliveries, and efficient supply chain management.</p>
 		</section>
+
 		<section pg-2>
-		    <div class="stack">
-		        <div class="stack-drawer">1</div>
+		    <div class="stack" direction="left">
+		        <div class="stack-drawer"><i class="drawer-icon"></i></div>
 		        <div class="text-block">
 		            <p class="stack-header">1) EFFICIENT TRANSPORTATION SOLUTIONS</p>
 		            <p class="stack-label">Streamline your supply chain with our innovative transportation solutions.</p>
 		        </div>
 		        <div class="stack-graphic">
-		            
+		            <img src="logix-4.svg">
 		        </div>
 		    </div>
-		    <div class="stack">
-		        <div class="stack-drawer">2</div>
+		    <div class="stack" direction="left">
+		        <div class="stack-drawer"><i class="drawer-icon"></i></div>
 		        <div class="text-block">
 		            <p class="stack-header">2) CUSTOMIZED LOGISTICS STRATEGIES</p>
 		            <p class="stack-label">Tailored logistics strategies to meet your unique shipping and distribution needs.</p>
 		        </div>
 		        <div class="stack-graphic">
-		            
+		            <img src="logix-1.svg">
 		        </div>
 		    </div>
-		    <div class="stack">
-		        <div class="stack-drawer">3</div>
+		    <div class="stack" direction="left">
+		        <div class="stack-drawer"><i class="drawer-icon"></i></div>
 		        <div class="text-block">
 		            <p class="stack-header">3) RELIABLE FREIGHT MANAGEMENT</p>
 		            <p class="stack-label">Trust our expertise for efficient freight management and timely deliveries.</p>
 		        </div>
 		        <div class="stack-graphic">
-		            
+		            <img src="logix-5.svg">
 		        </div>
 		    </div>
-		    <div class="stack">
-		        <div class="stack-drawer">4</div>
+		    <div class="stack" direction="left">
+		        <div class="stack-drawer"><i class="drawer-icon"></i></div>
 		        <div class="text-block">
 		            <p class="stack-header">4) SCALABLE LOGISTICS SOLUTIONS</p>
 		            <p class="stack-label">Grow your business with scalable logistics solutions designed for success.</p>
 		        </div>
 		        <div class="stack-graphic">
-		            
+		            <img src="logix-2.svg">
 		        </div>
 		    </div>
-		    <div class="stack"> 
-		        <div class="stack-drawer">5</div>
+		    <div class="stack" direction="left"> 
+		        <div class="stack-drawer"><i class="drawer-icon"></i></div>
 		        <div class="text-block">
 		            <p class="stack-header">5) COLLABORATIVE SUPPLY CHAIN MANAGEMENT</p>
 		            <p class="stack-label">Partner with us to optimize your supply chain and achieve greater efficiency together.</p>
 		        </div>
 		        <div class="stack-graphic">
-		            
+		            <img src="logix-3.svg">
 		        </div>
 		    </div>
-		</section>
+		</section> 
+
+		<section pg-4>
+			<div class="side1">
+				<p class="side-1-label">ABOUT US </p>
+				<p class="side-1-header">Effective Distribution </p>
+				<p class="side-1-text">Established in 1999, powering shipping, transport and logistics efficiency providing tailored logistics strategies to meet your unique shipping and distribution needs. </p>
+				<a class="side-1-btn" href="">LEARN ABOUT US</a>
+			</div>
+			<div class="side2">
+				<img class="side-2-img-1"/> 
+			</div>
+		</section> 
 
 		<section pg-3>
 		    <p class="line line1"> 
@@ -667,6 +998,39 @@ footer[in-view] .section-header {
 		        <span class="seperator">*</span>
 		        <span>Satisfaction</span>
 		    </p>
+		</section> 
+
+		<section pg-6>
+
+			<div class="top-section">
+				<p class="section-header">Our <highlight>impact</highlight> in numbers</p>
+				<p class="section-text">Benefit from customized solutions designed to optimize your supply chain and achieve greater efficiency and tailored logistics strategies to meet your unique shipping and distribution needs..</p>
+				<p class="section-button-container">
+					<a >Get Started</a>
+				</p>
+			</div>
+			<div class="bottom-section">
+				<div class="number-container">
+					<span class="number-value">800</span>
+					<span class="number-symbol">k</span>
+					<span class="number-label">Customers</span>
+				</div>
+				<div class="number-container">
+					<span class="number-value">99</span>
+					<span class="number-symbol">%</span>
+					<span class="number-label">Satisfaction</span>
+				</div>
+				<div class="number-container">
+					<span class="number-value">76</span>
+					<span class="number-symbol"></span>
+					<span class="number-label">Connected Supply Chain</span>
+				</div>
+				<div class="number-container">
+					<span class="number-value">250</span>
+					<span class="number-symbol">M</span>
+					<span class="number-label">Yearly Delivery</span>
+				</div>
+			</div>
 		</section>
 
 		<footer>
@@ -675,7 +1039,7 @@ footer[in-view] .section-header {
 		    <p class="section-label">Get updates on our services</p>
 		    <div class="section-input">
 		        <input placeholder="Email"/>
-		        <span class="send-btn fas fa-arrow-right"></span>
+		        <span class="send-btn"></span>
 		    </div>
 		    <nav> 
 		        <p class="nav-left">Menu</p> 
@@ -706,25 +1070,39 @@ function moveStackAtIndex(stackIndex){
 	if(stackDirection=="right") {
 		stacks.map((afterstack, afterstackIndex)=>{
 			if(stackIndex >= afterstackIndex+1) {
-				moveStackLeft(afterstack)
+				moveStackLeft(afterstack);
 			}
 		});
 	}
 }
+function setPrimeStack(stacks) { 
+	stacks.map((stack, stackIndex) => { 
+		stack.removeAttribute("is_prime", ""); 
+		if("left" == stack.getAttribute("direction")){
+			if(stackIndex == stacks.length-1 || "right" == stacks[stackIndex+1].getAttribute("direction")) { 
+				stack.setAttribute("is_prime", "");
+				console.log("is_prime, 2", stackIndex)
+			}
+			return;		
+		}
+	});
+}
+
 function moveStackLeft(stack) {
-	stack.setAttribute("direction", "left");
+	stack.setAttribute("direction", "left"); 
 }
 function moveStackRight(stack) {  
-	stack.setAttribute("direction", "right");
+	stack.setAttribute("direction", "right"); 
 }
 
 stacks.map((stack, stackIndex) => {
 	stackIndex += 1;
 	stack.onclick = () => {
 		moveStackAtIndex(stackIndex);
+		setPrimeStack(stacks);
 	}
 })
-
+setPrimeStack(stacks);
 
 
 
